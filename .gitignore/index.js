@@ -334,4 +334,4 @@ message.channel.send({embed: {
 //v${version}
 //cd desktop/discord
 //node V_Erwan_Bot.js
-client.login('H3gNoHA2NHZY08EqpX1lp7jP-3gl_R_F');
+client.login('xRuC1tilopZY3dhmhUAo0ZZGzYSpJJea');
