@@ -33,195 +33,25 @@ client.on('message', message => {
 	var prefix = '--'
     var sender = message.author;
     var owner = message.guild.owner.user || {};
-    var points = JSON.parse(fs.readFileSync('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\point.json', 'utf8'));
+//    var points = JSON.parse(fs.readFileSync('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\point.json', 'utf8'));
     var sender1 = message.author
     var msg1 = message.content.toUpperCase();
     var cont = message.content.slice(prefix.length).split(" ");
     var args = cont.slice(1);
-    var userData = JSON.parse(fs.readFileSync('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\userData.json','utf8'));
+  //  var userData = JSON.parse(fs.readFileSync('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\userData.json','utf8'));
 
 
-    if (!userData[sender1.id + message.guild.id]) userData[sender1.id + message.guild.id] = {}
-    if (!userData[sender1.id + message.guild.id].money) userData[sender1.id + message.guild.id].money = 50;
-    if (!userData[sender1.id + message.guild.id].username) userData[sender1.id + message.guild.id].username = message.author.id;
 
 
-   // console.log(userData)
-  //  fs.writeFile('C:\\Users\\Erwan\\Desktop\\discord\\titan.json', JSON.stringify(userData), (err) => {
-    //  if (err) console.error(err);
-    
-   // })
 
 
-    if (msg1 === prefix + 'MONEY')
-    message.channel.send(`**Nom**\n\n**${message.author.username}#${message.author.discriminator}**  \n\n **Money :euro:** \n\n` + userData[sender1.id + message.guild.id].money, + '.' )
 
 
 
-//guildstat
-	  
-if (msg1 === prefix + 'GUILDSTAT') {
-		  
-  //variable
-  
-  var guildMoney = 0;
-  var guildUser = 0;
-  var guildRichest = '';
-  var guildRichest$ = 0;
-  
-  for(var i in userData) {
-  if (i.endsWith(message.guild.id)) {
-    guildMoney += userData[i].money
-      guildUser += 1;
-        if (userData[i].money > guildRichest$) {
-          guildRichest$ = userData [i].money;
-            guildRichest = userData[i].username;
-        }
-      }
-    }
-        message.channel.send(`Guild Stat \n\n **Comptes** \n\n ${guildUser} \n\n **ToTal Money** \n\n  ${guildRichest$} `)
-    
-  }
 
 
 
-//${guildRichest}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  if (message.content.indexOf(prefix + 'dé') === 0) {
-   
- let cdseconds = 5;	
-     var value = parseInt(message.content.split(' ')[1], 10)
-     var min = 1, max = 6
-     var botvalue = Math.floor(Math.random() * (max - min +1)) + min;
-   
-     if(value >= min && value <= max) {
-     
-     escapeAuthor = message.author.id
-     
-     joueur = {'tag':'','score':0,'date':0}
-     var toto =  new Date().getTime()
-     
-     if(points['dé'][escapeAuthor] == undefined){
-       points['dé'][escapeAuthor] = joueur
-       
-     }
-     
-     points['dé'][escapeAuthor].tag = sender.tag //+ ' ' + sender.username
-     var derniereDate = points['dé'][escapeAuthor].date + 5000
-       
-     if(toto>derniereDate) {
-       
-       //ou : points['dé'][escapeAuthor].score += 1
-       
-       if (value==botvalue) {
-       
-       
-         message.reply('GG tu a gagner');
-         points['dé'][escapeAuthor].score = points['dé'][escapeAuthor].score + 1
-         //if(data.deClassement == undefined) { data.deClassement = {}; }
-         //escapeAuthor = message.author.username //.escapeSpecialChars()
-       } else {
-       
-         message.reply(':game_die: Ta perdu il falllai faire '+botvalue)
-       
-       }
-       save = true;
-     } else {
-       message.reply('il est trop tot pour rejouer')
-     }
-     
-     points['dé'][escapeAuthor].date = toto
-     }
-     else {
-   
-     message.reply(':game_die: il faut rentrer un nombre entre 1 et 6');    
- 
-     }
- } else
-
-if (message.content.indexOf(prefix + 'topdé') === 0) {
- 
- var sortable = [];
- for (var user in points['dé']) {
-   var pts = points['dé'][user].score;
-   sortable.push([ user , pts]);
- }
-
- sortable.sort(function(b, a) {
-   return a[1] - b[1];
- });
-
- 
- var nombreDeJoueurAfficher = 0;
- var nombreDeJoueurAfficherMaximum = 10
- var classementTexte = ':trophy: Top 10 Des meilleur joueur \n '
- for(var position in sortable) {
-   if(nombreDeJoueurAfficher <= nombreDeJoueurAfficherMaximum) {
-   var userId = sortable[position][0]
- 
-   var pts = sortable[position][1]
-   classementTexte = classementTexte + (parseInt(position)+1) + ' ' + points['dé'][userId].tag + ' ' + pts + '\n'
-   nombreDeJoueurAfficher = nombreDeJoueurAfficher + 1
-   }
- }
- 
- message.channel.send( classementTexte.replace('_', '\\_') )
-
-}
-    
-
-
-fs.writeFile('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\point.json', JSON.stringify(points), (err) => {
-  if (err) console.error(err);
-});
-
-fs.writeFile('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\userData.json', JSON.stringify(userData), (err) => {
-  if (err) console.error(err);
-});
 
 
 
