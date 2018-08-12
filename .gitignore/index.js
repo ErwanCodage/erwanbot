@@ -1,27 +1,28 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-
-
-
-var prefix = ("--")
-
+var prefix = ("*")
 
 bot.on('ready', function() {
-	bot.user.setActivity(`Bot Heberger |En codage| Erwan_ mon maitre`);
-	console.log("Conections en cour")
+    bot.user.setGame("Command: :help");
+    console.log("Connected");
 });
 
 bot.login(process.env.TOKEN);
 
+
 bot.on('message', message => {
+    if (message.content === prefix + "help"){
+        message.channel.sendMessage("Liste des commandes: \n !tt \n !fabriquant");
+    }
 
+    if (message.content === prefix + "tt"){
+        message.channe("Création du bot le _11/12/2017_ à _13h57_");
+        console.log("Commande effectué");
+    }
 
-   if (message.content === prefix + "botinfo"){
-   message.channel.send(`Jai actuellement ${Math.round(client.ping)}ms est justilise ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB de ram`)
-
-   }
-
-
-
+    if (message.content === prefix + "fabriquant"){
+        message.reply("_Ce bot a été crée par MhBurgerKing_");
+        console.log("Commande effectué");
+    }
 });
