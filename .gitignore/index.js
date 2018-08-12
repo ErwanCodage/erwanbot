@@ -14,55 +14,46 @@ bot.login('NDY4MTQwNTM4NTM3OTY3NjI2.Di49Gw._SlpwQY-RWE9r1hn5iBCs_r4NmE');
 bot.on('message', message => {
 
 
-
-if(message.content == '--botinfo') {
-
+  	   if(message.content == '--servinfo') {
+ 	
+message.channel.send({embed: {
+    color: 3248003,
+    title: "Info du serveur",
+    description: "Information du Serveur",
+    fields: [{
+        name: "Creations Du Serveur/Date",
+        value: ` ${day}.${month}.${year} `
+      },
+	  {
+        name: `Fondateur`,
+        value:`${owner.username || 'None'} `
+      },
+	  
+      {
+        name: "Onligne-Total",
+        value: `**     ${msg.guild.members.filter(m => m.presence.status !== 'offline').size}    /    ${msg.guild.memberCount}**`
+      },
+	   {
+        name: "Channel",
+        value:  `**${message.guild.channels.filter(chan => chan.type === 'voice').size} Vocal / ${message.guild.channels.filter(chan => chan.type === 'text').size} Textuel**`
+      },
+	  {
+         name: 'Roles',
+         value: `${msg.guild.roles.size}`,
+       },
+	   {
+        name: `Regions`,
+        value:`***${msg.guild.region}*** `
+      }
 	
-    message.channel.send({embed: {
-        color: 9247003,
-        title: "Information",
-        description: "Information de Erwan.Bot ",
-        fields: [{
-            name: `***:robot:Nom***`,
-            value:`Erwan.Bot `
-          },
-        {
-                    name: ':desktop: Servers',
-                    value: `${client.guilds.size.toLocaleString()}`,
-          },
-         {
-                    name: ':baby: Users',
-                    value: `${client.guilds.reduce((mem, g) => mem += g.memberCount, 0)}`,
-           },
-        {
-                    name: ':keyboard: Channels',
-                    value: `${client.channels.size.toLocaleString()}`,
-          },
-        {
-                    name: ':ping_pong:Ping',
-                    value: `${client.ping.toFixed(0)}ms`,
-          },
-         {
-                    name: ':computer:Discord.js Versions',
-                    value: `v${version}`,
-           },
-          {
-                    name: ':computer:Node.js Versions',
-                    value: `${process.version}`,
-           },
-        {
-                    name: ':thinking: RAM usage',
-                    value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
-          }
-       
-    
-          
-          
-        
-      ]
-        
-        
-       }
+	  
+	]
+	  
+	  
+   }
+});  
+  
+	   }
 
 
 
