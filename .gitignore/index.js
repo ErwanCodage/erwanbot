@@ -5,7 +5,7 @@ var prefix = ("--")
 
 
 bot.on('ready', function() {
-	bot.user.setActivity(`jsui heberger Cool`);
+	bot.user.setActivity(`Bot Heberger |En codage| Erwan_ mon maitre`);
 	console.log("Conections en cour")
 });
 
