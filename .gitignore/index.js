@@ -1,9 +1,6 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client();
 const { Client, MessageAttachment } = require('discord.js');
-const fs = require('fs');
-const { version } = require("discord.js");
-const moment = require("moment");
 
 var prefix = ("--")
 
@@ -13,7 +10,7 @@ bot.on('ready', function() {
 	console.log("Conections en cour")
 });
 
-bot.login('NDY4MTQwNTM4NTM3OTY3NjI2.Di49Gw._SlpwQY-RWE9r1hn5iBCs_r4NmE');
+bot.login(process.env.TOKEN);
 
 bot.on('message', message => {
 
