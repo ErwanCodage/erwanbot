@@ -1,5 +1,9 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client();
+const { Client, MessageAttachment } = require('discord.js');
+const fs = require('fs');
+const { version } = require("discord.js");
+const moment = require("moment");
 
 var prefix = ("--")
 
