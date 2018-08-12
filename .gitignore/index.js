@@ -17,4 +17,13 @@ bot.on('message', message => {
    
   }
 
+if (message.content === prefix + "flip") {
+    	var result = Math.floor((Math.random() * 2) + 1);
+    	if (result == 1) {
+    		bot.reply(message, "Face (1)");
+    	} else if (result == 2) {
+    		bot.reply(message, "Pile (2)");
+    	}
+    }
+
 });
