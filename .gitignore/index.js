@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("--")
 
 bot.on('ready', function() {
-    bot.user.setGame("Command: :help");
+    client.user.setActivity(`|En codage|Heberger 24h/24|Erwan_ Mon maitre`);
     console.log("Connected");
 });
 
